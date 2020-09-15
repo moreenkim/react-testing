@@ -50,3 +50,16 @@ test('clicking button increments counter display', () => {
   const counterDisplay = findByTestAttr(wrapper, 'counter-display');
   expect(counterDisplay.text()).toContain(counter + 1);
 });
+
+test('clicking button decrements counter display', () => {
+  const counter = 7;
+  const wrapper = setup(null, { counter });
+  const button = findByTestAttr(wrapper, 'decrement-button');
+  button.simulate('click');
+  wrapper.update();
+  const counterDisplay = findByTestAttr(wrapper, 'counter-display');
+  expect(counterDisplay.text()).toContain(counter - 1);
+  if (counter <= 0) {
+    alert(' counter cant go below zero');
+  }
+});
