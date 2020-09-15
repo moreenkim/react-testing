@@ -1,9 +1,11 @@
 import React from 'react';
-import Enzyme from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import { render } from '@testing-library/react';
 import App from './App';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-test('renders learn react link', () => {});
+test('renders learn react link', () => {
+  const wrapper = shallow(<App />);
+});
